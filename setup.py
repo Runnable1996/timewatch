@@ -5,13 +5,11 @@ import timewatch
 setup(
   name = 'timewatch',
   packages = ['timewatch'],
-  version = timewatch.__version__,
+  version = 'v0.0',
   description = 'A library automating worktime reports for timewatch.co.il',
   long_description=(open('README.md').read() if exists('README.md') else ''),
-  author = 'Nir Izraeli',
-  author_email = 'nirizr@gmail.com',
-  url = 'https://github.com/nirizr/timewatch',
-  download_url = 'https://github.com/nirizr/timewatch/tarball/{}'.format(timewatch.__version__),
-  keywords = ['timewatch', 'timewatch.co.il'], # arbitrary keywords
-  classifiers = [],
+   entry_points='''
+        [console_scripts]
+        timewatch=timewatch:app
+    ''',
 )
