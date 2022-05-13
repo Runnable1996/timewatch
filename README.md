@@ -1,4 +1,3 @@
-[![Version Status][v-image]][pypi-url] 
 
 ## timewatch
 
@@ -15,60 +14,40 @@ It is therefor handling govt. off days and weekends, and is quite configurable.
 
 ## Usage
 To report required working hours for the current month, simply execute
-```./main.py <company id> <employee number> <password>```
+```timewatch [OPTIONS] COMPANY_ID ID PASSWORD```
 
 ### Full usage and functionality
 
 ```
-usage: main.py [-h] [-y YEAR] [-m MONTH] [-v] [-o {all,incomplete,regular}]
-               [-s STARTTIME] [-j JITTER]
-               company user password
+Usage: timewatch [OPTIONS] COMPANY_ID ID PASSWORD
+
+Arguments:
+  COMPANY_ID  [required]
+  ID          [required]
+  PASSWORD    [required]
+
+
 
 Automatic work hours reporting for timewatch.co.il
 
 positional arguments:
-  company               Company ID
-  user                  user name/id
-  password              user password
+  COMPANY_ID               Company ID
+  ID                  user name/id
+  PASSWORD              user password
 
-optional arguments:
-  -h, --help            show this help message and exit
-  -y YEAR, --year YEAR  Year number to fill
-  -m MONTH, --month MONTH
-                        Month number or name
-  -v, --verbose         increase logging level
-  -o {all,incomplete,regular}, --override {all,incomplete,regular}
-                        Control override behavior. all - override all working
-                        days, unsafe to vacation/sick days. incomplete = only
-                        override days with partial records. regular - override
-                        regular days (without absence reason) only
-  -s STARTTIME, --starttime STARTTIME
-                        punch-in time
-  -j JITTER, --jitter JITTER
-                        punching time random range in minutes.
+Options:
+  -m, --month TEXT                [default: {{current month}}]
+  -y, --year TEXT                 [default: {{current year}}]
+  --help                          Show this message and exit.
 ```
 
 ### Installation
 
 ```
-git clone https://github.com/nirizr/timewatch.git
+git clone https://github.com/Runnable1996/timewatch.git
 cd timewatch
-pip install -r requirements.txt
-```
-
-or
-
-```
-pip install timewatch --target './'
-cd timewatch
-./main.py <args>
+pip install .
 ```
 
 ### Known issues
 * Doesn't sign the doc (I suggest you do it manually after reviewing there are no bugs in the report).
-* no support for reporting vacation/sick days through the script yet (You can report using timewatch's web interface before/after running the script)
-
-[v-image]: https://img.shields.io/pypi/v/timewatch.svg
-[dm-image]: https://img.shields.io/pypi/dm/timewatch.svg
-
-[pypi-url]: https://pypi.python.org/pypi/timewatch/
